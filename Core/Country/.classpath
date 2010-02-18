@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="var" path="GWT_HOME/gwt-user.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="var" path="LIB_HOME/Driver/MySQL/mysql-connector-java-5.1.2-beta.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/MWT"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

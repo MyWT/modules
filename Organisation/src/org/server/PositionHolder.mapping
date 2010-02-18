@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Author: Vinod.Pahuja -->
+<!-- Modified: Monday, April 20, 2009 01:10:29 PM -->
+<mapping>
+   <package name="org.server">
+      <class name ="PositionHolder">
+         
+        <jdbc-class-map type="base" pk-column= "PositionHolderId" table="PositionHolder"/>
+        <jdbc-version-ind type="version-number" column="JDOLOCKX"/>
+            
+        
+        <field name="positionHolderUserId">
+           <jdbc-field-map type="value" column="PositionHolderUserId"/>
+        </field>  
+        <field name="positionId">
+           <jdbc-field-map type="value" column="PositionId"/>
+        </field>  
+        <field name="parentPositionHolderId">
+           <jdbc-field-map type="value" column="ParentPositionHolderId"/>
+        </field>
+      
+      </class>
+   </package>
+</mapping>

@@ -1,0 +1,3 @@
+<module>
+	<inherits name="rnd.webapp.mwt.MGWT" />
+</module>

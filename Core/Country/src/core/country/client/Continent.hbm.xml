@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hibernate XML Mapping File -->
+<!-- Author: amit.kumar -->
+<!-- Modified: Friday, September 21, 2007 12:13:37 PM -->
+<!DOCTYPE hibernate-mapping PUBLIC
+   "-//Hibernate/Hibernate Mapping DTD//EN"
+   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="core.country.client" auto-import="true">
+	<class name="Continent" table="Continents" mutable="true" lazy="true" abstract="false">
+		<id name="ContinentId">
+			<column name="ContinentId" sql-type="bigint" not-null="true" />
+			<generator class="increment"></generator>
+		</id>
+		<property name="continentName" insert="true" update="true" optimistic-lock="true">
+			<column name="ContinentName" sql-type="varchar(150)" length="150" />
+		</property>
+	</class>
+</hibernate-mapping>

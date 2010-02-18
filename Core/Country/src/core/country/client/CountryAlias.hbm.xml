@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hibernate XML Mapping File -->
+<!-- Author: amit.kumar -->
+<!-- Modified: Friday, September 21, 2007 12:13:48 PM -->
+<!DOCTYPE hibernate-mapping PUBLIC
+   "-//Hibernate/Hibernate Mapping DTD//EN"
+   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="core.country.client" auto-import="true">
+	<class name="CountryAlias" table="CountryAliases" mutable="true" lazy="true" abstract="false">
+		<id name="CountryAliasId">
+			<column name="CountryAliasId" sql-type="bigint" not-null="true" />
+			<generator class="increment"></generator>
+		</id>
+		<property name="countryAliasName" insert="true" update="true" optimistic-lock="true">
+			<column name="CountryAliasName" sql-type="varchar(150)" length="150" />
+		</property>
+		<many-to-one name="country" class="Country" access="field" unique="true" lazy="false" cascade="save-update" update="true" fetch="select" insert="true">
+			<column name="CountryId" sql-type="bigint" not-null="false" length="0" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

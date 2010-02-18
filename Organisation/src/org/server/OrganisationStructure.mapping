@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Author: Vinod.Pahuja -->
+<!-- Modified: Monday, April 20, 2009 01:10:29 PM -->
+<mapping>
+   <package name="org.server">
+      <class name ="OrganisationStructure">
+         
+        <jdbc-class-map type="base" pk-column= "OrganisationStructureId" table="OrganisationStructure"/>
+        <jdbc-version-ind type="version-number" column="JDOLOCKX"/>
+         
+        
+        <field name="structureName">
+           <jdbc-field-map type="value" column="StructureName"/>
+        </field>  
+        <field name="validFrom">
+           <jdbc-field-map type="value" column="ValidFrom"/>
+        </field>  
+        <field name="validUpto">
+           <jdbc-field-map type="value" column="ValidUpto"/>
+        </field>
+         
+        
+        <field name="organisationId">
+           <jdbc-field-map type="value" column="OrganisationId"/>
+        </field>  
+        <field name="rootPositionId">
+           <jdbc-field-map type="value" column="RootPositionId"/>
+        </field>
+      
+      </class>
+   </package>
+</mapping>

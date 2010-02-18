@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Author: Vinod.Pahuja -->
+<!-- Modified: Monday, April 20, 2009 01:10:29 PM -->
+<mapping>
+   <package name="org.server">
+      <class name ="ParentPositionHistory">
+         
+        <jdbc-class-map type="base" pk-column= "ParentPositionHistoryId" table="ParentPositionHistory"/>
+        <jdbc-version-ind type="version-number" column="JDOLOCKX"/>
+         
+        
+        <field name="validFrom">
+           <jdbc-field-map type="value" column="ValidFrom"/>
+        </field>  
+        <field name="validUpto">
+           <jdbc-field-map type="value" column="ValidUpto"/>
+        </field>
+         
+        
+        <field name="positionId">
+           <jdbc-field-map type="value" column="PositionId"/>
+        </field>  
+        <field name="parentPositionId">
+           <jdbc-field-map type="value" column="ParentPositionId"/>
+        </field>
+      
+      </class>
+   </package>
+</mapping>

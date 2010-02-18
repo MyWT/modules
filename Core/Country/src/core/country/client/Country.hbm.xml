@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hibernate XML Mapping File -->
+<!-- Author: amit.kumar -->
+<!-- Modified: Friday, September 21, 2007 12:13:48 PM -->
+<!DOCTYPE hibernate-mapping PUBLIC
+   "-//Hibernate/Hibernate Mapping DTD//EN"
+   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="core.country.client" auto-import="true">
+	<class name="Country" table="Countries" mutable="true" lazy="true" abstract="false">
+		<id name="CountryId">
+			<column name="CountryId" sql-type="bigint" not-null="true" />
+			<generator class="increment"></generator>
+		</id>
+		<property name="countryName" insert="true" update="true" optimistic-lock="true">
+			<column name="CountryName" sql-type="varchar(150)" length="150" />
+		</property>
+		<many-to-one name="continent" class="core.country.client.Continent" access="field" unique="true" lazy="false" cascade="save-update" update="true" fetch="select" insert="true">
+			<column name="ContinentId" sql-type="bigint" not-null="false" length="0" />
+		</many-to-one>
+		<bag name="countryAliases" lazy="false" access="field" optimistic-lock="true" fetch="select" cascade="save-update">
+			<key on-delete="noaction" unique="false">
+				<column name="CountryId" sql-type="bigint" not-null="false" length="0" />
+			</key>
+			<one-to-many class="core.country.client.CountryAlias" />
+		</bag>
+	</class>
+</hibernate-mapping>

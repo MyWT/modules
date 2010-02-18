@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Author: Vinod.Pahuja -->
+<!-- Modified: Monday, April 20, 2009 01:10:29 PM -->
+<mapping>
+   <package name="org.server">
+      <class name ="OrganisationChart">
+         
+        <jdbc-class-map type="base" pk-column= "OrganisationChartId" table="OrganisationChart"/>
+        <jdbc-version-ind type="version-number" column="JDOLOCKX"/>
+         
+        
+        <field name="chartName">
+           <jdbc-field-map type="value" column="ChartName"/>
+        </field>  
+        <field name="validFrom">
+           <jdbc-field-map type="value" column="ValidFrom"/>
+        </field>  
+        <field name="validUpto">
+           <jdbc-field-map type="value" column="ValidUpto"/>
+        </field>
+         
+        
+        <field name="organisationStructureId">
+           <jdbc-field-map type="value" column="OrganisationStructureId"/>
+        </field>  
+        <field name="organisationId">
+           <jdbc-field-map type="value" column="OrganisationId"/>
+        </field>  
+        <field name="rootPositionHolderId">
+           <jdbc-field-map type="value" column="RootPositionHolderId"/>
+        </field>
+      
+      </class>
+   </package>
+</mapping>

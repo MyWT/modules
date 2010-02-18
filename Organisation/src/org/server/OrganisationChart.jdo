@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- JDO Persistence Descriptor -->
+<!-- JDO Provider: SolarMetric Kodo -->
+<!-- Author: Vinod.Pahuja -->
+<!-- Modified: Monday, April 20, 2009 01:10:29 PM -->
+<!-- DOCTYPE jdo SYSTEM "jdo.dtd"-->
+<jdo>
+   <package name="org.server">
+      <class name ="OrganisationChart">
+         
+         <extension vendor-name="kodo" key="detachable" value="true"/>
+         
+         <field name="chartName"/>
+         
+         <field name="validFrom"/>
+         
+         <field name="validUpto"/>
+         
+         <field name="organisationStructureId"/>
+         
+         <field name="organisationId"/>
+         
+         <field name="rootPositionHolderId"/>
+      </class>
+   </package>
+</jdo>
