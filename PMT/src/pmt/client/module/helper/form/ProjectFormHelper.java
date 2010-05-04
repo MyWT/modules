@@ -8,6 +8,7 @@ import rnd.mywt.client.data.impl.ColumnMetaDataImpl;
 import rnd.mywt.client.expression.BeanPropertyExpression;
 import rnd.mywt.client.mvc.field.Table;
 import rnd.mywt.client.mvc.field.Table.BeanTableModel;
+import rnd.mywt.client.mvc.field.Table.BeanTableModel.RowDelegate;
 import rnd.mywt.client.mvc.field.data.ReferenceField;
 import rnd.mywt.client.mvc.field.data.text.TextField;
 import rnd.mywt.client.mvc.page.form.Form;
