@@ -6,8 +6,8 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
-import rnd.webapp.mwt.client.utils.ObjectUtils;
-import rnd.webapp.mwt.server.bean.ApplicationJavaBean;
+import rnd.mywt.client.utils.ObjectUtils;
+import rnd.mywt.server.bean.ApplicationJavaBean;
 
 @PersistenceCapable(identityType = IdentityType.APPLICATION)
 public class User extends ApplicationJavaBean {

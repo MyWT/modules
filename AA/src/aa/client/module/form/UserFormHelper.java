@@ -1,10 +1,10 @@
 package aa.client.module.form;
 
-import rnd.webapp.mwt.client.application.AbstractFormHelper;
-import rnd.webapp.mwt.client.bean.ApplicationBean;
-import rnd.webapp.mwt.client.mvc.MVCHandlerFactory;
-import rnd.webapp.mwt.client.mvc.field.data.text.TextField;
-import rnd.webapp.mwt.client.mvc.page.form.Form;
+import rnd.mywt.client.application.AbstractFormHelper;
+import rnd.mywt.client.bean.ApplicationBean;
+import rnd.mywt.client.mvc.MVCHandlerFactory;
+import rnd.mywt.client.mvc.field.data.text.TextField;
+import rnd.mywt.client.mvc.page.form.Form;
 import aa.client.User;
 
 public class UserFormHelper extends AbstractFormHelper {

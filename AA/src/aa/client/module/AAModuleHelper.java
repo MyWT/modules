@@ -1,6 +1,6 @@
 package aa.client.module;
 
-import rnd.webapp.mwt.client.application.AbstractModuleHelper;
+import rnd.mywt.client.application.AbstractModuleHelper;
 import aa.client.module.form.UserFormHelper;
 
 public class AAModuleHelper extends AbstractModuleHelper {

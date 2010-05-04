@@ -1,2 +1,3 @@
 <module>
+	<inherits name="rnd.mywt.MyWT" />
 </module>

@@ -1,7 +1,7 @@
 package aa.server.module;
 
-import rnd.webapp.mwt.server.application.AbstractModuleHandler;
-import rnd.webapp.mwt.server.application.ModuleHandler;
+import rnd.mywt.server.application.AbstractModuleHandler;
+import rnd.mywt.server.application.ModuleHandler;
 import aa.server.User;
 import aa.server.module.appbean.UserHandler;
 

@@ -1,7 +1,7 @@
 package pmt.server;
 
-import rnd.webapp.mwt.client.utils.ObjectUtils;
-import rnd.webapp.mwt.server.bean.ApplicationJavaBean;
+import rnd.mywt.client.utils.ObjectUtils;
+import rnd.mywt.server.bean.ApplicationJavaBean;
 
 public class WorkLog extends ApplicationJavaBean {
 

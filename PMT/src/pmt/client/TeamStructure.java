@@ -1,6 +1,6 @@
 package pmt.client;
 
-import rnd.webapp.mwt.client.bean.ApplicationDynaBean;
+import rnd.mywt.client.bean.ApplicationDynaBean;
 
 public class TeamStructure extends ApplicationDynaBean {
 
