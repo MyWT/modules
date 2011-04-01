@@ -11,4 +11,5 @@ public class AAModuleHandler extends AbstractModuleHandler implements ModuleHand
 	public void initModule() {
 		registerApplicationBean("User", User.class, new UserHandler());
 	}
+	
 }
