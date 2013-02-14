@@ -12,4 +12,9 @@ public class AAModuleHandler extends AbstractModuleHandler implements ModuleHand
 		registerApplicationBean("User", User.class, new UserHandler());
 	}
 	
+	@Override
+	public String getModuleName() {
+		return "AA";
+	}
+
 }

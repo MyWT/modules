@@ -17,4 +17,10 @@ public class PMTModuleHandler extends AbstractModuleHandler {
 
 	}
 
+	@Override
+	public String getModuleName() {
+		return "PMT";
+	}
+
+
 }

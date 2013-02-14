@@ -10,7 +10,7 @@ public class UserHandler extends AbstractABHandler {
 
 		SQLViewMetaDataImpl vmd = new SQLViewMetaDataImpl();
 
-		vmd.setViewQuery("Select UserId, UserName From User");
+		vmd.setViewQuery("Select UserId, UserName From [User]");
 		vmd.setViewName(viewName);
 		vmd.setIdColumnIndex(0);
 		vmd.setDisplayColumnIndex(1);
