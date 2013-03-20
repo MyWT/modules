@@ -1,21 +1,17 @@
 package ad.client.module.form;
 
+import rnd.mywt.client.MyWTHelper;
 import rnd.mywt.client.application.AbstractFormHelper;
 import rnd.mywt.client.bean.ApplicationBean;
 import rnd.mywt.client.bean.ApplicationDynaBean;
-import rnd.mywt.client.mvc.MVCHandlerFactory;
 import rnd.mywt.client.mvc.field.data.ReferenceField;
 import rnd.mywt.client.mvc.field.data.text.TextField;
 import rnd.mywt.client.mvc.page.form.Form;
 
 public class FormFormHelper extends AbstractFormHelper {
 
-	public String getFormName() {
-		return "Form";
-	}
-
-	public String getViewName() {
-		return "Form";
+	public FormFormHelper() {
+		super("Form", "Form");
 	}
 
 	public Form createForm() {
@@ -31,13 +27,13 @@ public class FormFormHelper extends AbstractFormHelper {
 		ReferenceField appBeanId_RF = createReferenceField("ApplicationBean", "ApplicationBeanId", "AD", "ApplicationBean", "ApplicationBean", "Name");
 		form.addField(appBeanId_RF);
 
-		TextField name_TF = MVCHandlerFactory.getMVCHandler().createTextField("Form Name");
+		TextField name_TF = MyWTHelper.getMVCHandler().createTextField("Form Name");
 		name_TF.setBoundTo("name");
 		form.addField(name_TF);
 
 		return form;
 	}
-	
+
 	@Override
 	public ApplicationBean createApplicationBean() {
 		return new ApplicationDynaBean("ad.server.Form");

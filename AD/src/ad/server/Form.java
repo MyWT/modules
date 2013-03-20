@@ -3,11 +3,20 @@ package ad.server;
 import rnd.mywt.server.bean.ApplicationJavaBean;
 
 public class Form extends ApplicationJavaBean {
-	
+
+	private Long formId;
 	private String name;
 	private Long applicationId;
 	private Long moduleId;
 	private Long applicationBeanId;
+
+	public Long getFormId() {
+		return formId;
+	}
+
+	public void setFormId(Long formId) {
+		this.formId = formId;
+	}
 
 	public String getName() {
 		return name;
@@ -33,14 +42,12 @@ public class Form extends ApplicationJavaBean {
 		this.moduleId = moduleId;
 	}
 
-	public Long getApplicationBeanId() {
+	public Long getId() {
 		return applicationBeanId;
 	}
 
-	public void setApplicationBeanId(Long applicationBeanId) {
+	public void setId(Long applicationBeanId) {
 		this.applicationBeanId = applicationBeanId;
 	}
-	
-	
-	
+
 }

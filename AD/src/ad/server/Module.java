@@ -3,9 +3,18 @@ package ad.server;
 import rnd.mywt.server.bean.ApplicationJavaBean;
 
 public class Module extends ApplicationJavaBean {
-	
+
+	private Long moduleId;
 	private String name;
 	private Long applicationId;
+
+	public Long getModuleId() {
+		return moduleId;
+	}
+
+	public void setModuleId(Long moduleId) {
+		this.moduleId = moduleId;
+	}
 
 	public String getName() {
 		return name;
@@ -22,7 +31,5 @@ public class Module extends ApplicationJavaBean {
 	public void setApplicationId(Long applicationId) {
 		this.applicationId = applicationId;
 	}
-	
-	
-	
+
 }

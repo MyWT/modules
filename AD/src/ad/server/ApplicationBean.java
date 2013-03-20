@@ -4,9 +4,18 @@ import rnd.mywt.server.bean.ApplicationJavaBean;
 
 public class ApplicationBean extends ApplicationJavaBean {
 
+	private Long applicationBeanId;
 	private String name;
 	private Long applicationId;
 	private Long moduleId;
+
+	public Long getApplicationBeanId() {
+		return applicationBeanId;
+	}
+
+	public void setApplicationBeanId(Long applicationBeanId) {
+		this.applicationBeanId = applicationBeanId;
+	}
 
 	public String getName() {
 		return name;
@@ -31,6 +40,5 @@ public class ApplicationBean extends ApplicationJavaBean {
 	public void setModuleId(Long moduleId) {
 		this.moduleId = moduleId;
 	}
-	
-	
+
 }
