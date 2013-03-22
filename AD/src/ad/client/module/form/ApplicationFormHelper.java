@@ -17,7 +17,7 @@ public class ApplicationFormHelper extends AbstractFormHelper {
 
 		Form form = super.createForm();
 
-		TextField name_TF = MyWTHelper.getMVCHandler().createTextField("Application Name");
+		TextField name_TF = MyWTHelper.getMVCFactory().createTextField("Application Name");
 		name_TF.setBoundTo("name");
 		form.addField(name_TF);
 

@@ -42,11 +42,11 @@ public class Form extends ApplicationJavaBean {
 		this.moduleId = moduleId;
 	}
 
-	public Long getId() {
+	public Long getApplicationBeanId() {
 		return applicationBeanId;
 	}
 
-	public void setId(Long applicationBeanId) {
+	public void setApplicationBeanId(Long applicationBeanId) {
 		this.applicationBeanId = applicationBeanId;
 	}
 

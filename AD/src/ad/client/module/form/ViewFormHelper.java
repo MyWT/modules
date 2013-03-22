@@ -27,7 +27,7 @@ public class ViewFormHelper extends AbstractFormHelper {
 		ReferenceField appBeanId_RF = createReferenceField("ApplicationBean", "ApplicationBeanId", "AD", "ApplicationBean", "ApplicationBean", "Name");
 		form.addField(appBeanId_RF);
 
-		TextField name_TF = MyWTHelper.getMVCHandler().createTextField("View Name");
+		TextField name_TF = MyWTHelper.getMVCFactory().createTextField("View Name");
 		name_TF.setBoundTo("name");
 		form.addField(name_TF);
 

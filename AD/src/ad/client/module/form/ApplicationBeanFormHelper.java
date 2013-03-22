@@ -24,7 +24,7 @@ public class ApplicationBeanFormHelper extends AbstractFormHelper {
 		ReferenceField moduleId_RF = createReferenceField("Module", "moduleId", "AD", "Module", "Module", "Name");
 		form.addField(moduleId_RF);
 
-		TextField name_TF = MyWTHelper.getMVCHandler().createTextField("Name");
+		TextField name_TF = MyWTHelper.getMVCFactory().createTextField("Name");
 		name_TF.setBoundTo("name");
 		form.addField(name_TF);
 
