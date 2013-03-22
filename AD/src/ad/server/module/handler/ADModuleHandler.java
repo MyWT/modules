@@ -28,7 +28,7 @@ public class ADModuleHandler extends AbstractModuleHandler {
 		registerApplicationBean("ApplicationBean", ad.server.ApplicationBean.class);
 		registerApplicationBean("View", View.class);
 		registerApplicationBean("Form", Form.class);
-		registerApplicationBean("Form", Field.class);
+		registerApplicationBean("Field", Field.class);
 	}
 
 	@Override
@@ -38,23 +38,10 @@ public class ADModuleHandler extends AbstractModuleHandler {
 		switch (req.getMethod()) {
 
 		case Load:
-			// Module
-			// if (ARUtils.getAppBeanName(req).equals("Module")) {
-			// sourceBeans = getObjectPersistor().findAllObject(//
-			// new Object[] {
-			// "ApplicationId = (Select ApplicationId From application Where Name = ? )"
-			// }, //
-			// new Object[] { ARUtils.getParent(req) }, //
-			// Module.class);
-			// AppBeanUtils.copyAllBean(sourceBeans, targetBeans,
-			// AppBeanUtils.getServerCopyBeanCtx(),
-			// AppBeanUtils.getClientBeanCopyCtx());
-			// resp.setResult((Serializable) targetBeans);
-			// }
-			// else
-			if (ARUtils.getAppBeanName(req).equals("Application")) {
 
-				Collection<ApplicationBean> sourceBeans = null;
+			Collection<ApplicationBean> sourceBeans = null;
+
+			if (ARUtils.getAppBeanName(req).equals("Application")) {
 
 				// Application
 				sourceBeans = getObjectPersistor().findAllObject(new Object[] { "Name = ? " }, new Object[] { ARUtils.getName(req) }, Application.class);
@@ -88,7 +75,7 @@ public class ADModuleHandler extends AbstractModuleHandler {
 							AppBeanUtils.copyBean(srcForm, form, AppBeanUtils.getServerCopyBeanCtx(), AppBeanUtils.getClientBeanCopyCtx());
 
 							appBean.addElement("form", form);
-						}
+						} // End Form
 
 						// // View
 						// sourceBeans = getObjectPersistor().findAllObject(new
@@ -103,26 +90,35 @@ public class ADModuleHandler extends AbstractModuleHandler {
 						//
 						// appBean.addElement("view", view);
 						// }
-						module.addElement("applicationBean", appBean);
-					}
-					application.addElement("module", module);
-				}
 
-			} else if (true) {
+						module.addElement("applicationBean", appBean);
+					}// End AppBean
+
+					application.addElement("module", module);
+				}// End Module
+
+			} // End App
+
+			else if (ARUtils.getAppBeanName(req).equals("Form")) {
+
+				// Form
+				sourceBeans = getObjectPersistor().findAllObject(new Object[] { "Name = ? " }, new Object[] { ARUtils.getName(req) }, Form.class);
+				ApplicationDynaBean form = new ApplicationDynaBean();
+				ApplicationBean srcForm = sourceBeans.iterator().next();
+				AppBeanUtils.copyBean(srcForm, form, AppBeanUtils.getServerCopyBeanCtx(), AppBeanUtils.getClientBeanCopyCtx());
+				resp.setResult(form);
+
 				// Field
-				// Long formId = (Long) srcForm.getValue("formId");
-				// sourceBeans = getObjectPersistor().findAllObject(new Object[]
-				// { "FormId = ? " }, new Object[] { formId }, Field.class);
-				// for (ApplicationBean srcField : sourceBeans) {
-				//
-				// ApplicationDynaBean field = new ApplicationDynaBean();
-				// AppBeanUtils.copyBean(srcField, field,
-				// AppBeanUtils.getServerCopyBeanCtx(),
-				// AppBeanUtils.getClientBeanCopyCtx());
-				//
-				// form.addElement("field", field);
-				// }
-			}
+				Long formId = (Long) srcForm.getValue("formId");
+				sourceBeans = getObjectPersistor().findAllObject(new Object[] { "FormId = ? " }, new Object[] { formId }, Field.class);
+				for (ApplicationBean srcField : sourceBeans) {
+
+					ApplicationDynaBean field = new ApplicationDynaBean();
+					AppBeanUtils.copyBean(srcField, field, AppBeanUtils.getServerCopyBeanCtx(), AppBeanUtils.getClientBeanCopyCtx());
+
+					form.addElement("field", field);
+				}
+			} // End Form
 
 		}
 
