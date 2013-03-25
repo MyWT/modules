@@ -25,7 +25,7 @@ public class ADModuleHelper extends AbstractModuleHelper {
 		addFormHelper("Module", "Module", new ModuleFormHelper());
 		addFormHelper("ApplicationBean", "ApplicationBean", new ApplicationBeanFormHelper());
 		addFormHelper("Form", "Form", new FormFormHelper());
-		addFormHelper("Field", "Form", new FieldFormHelper());
+		addFormHelper("Field", "Field", new FieldFormHelper());
 		addFormHelper("View", "View", new ViewFormHelper());
 
 	}

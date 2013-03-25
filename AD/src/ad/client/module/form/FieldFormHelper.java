@@ -11,7 +11,7 @@ import rnd.mywt.client.mvc.page.form.Form;
 public class FieldFormHelper extends AbstractFormHelper {
 
 	public FieldFormHelper() {
-		super("Field", "Field");
+		super("Field", "Field", "Field");
 	}
 
 	public Form createForm() {
@@ -26,7 +26,7 @@ public class FieldFormHelper extends AbstractFormHelper {
 
 		ReferenceField appBeanId_RF = createReferenceField("ApplicationBean", "ApplicationBeanId", "AD", "ApplicationBean", "ApplicationBean", "Name");
 		form.addField(appBeanId_RF);
-		
+
 		ReferenceField formId_RF = createReferenceField("Form", "FormId", "AD", "Form", "Form", "Name");
 		form.addField(formId_RF);
 

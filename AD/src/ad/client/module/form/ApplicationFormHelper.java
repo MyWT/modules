@@ -10,7 +10,7 @@ import rnd.mywt.client.mvc.page.form.Form;
 public class ApplicationFormHelper extends AbstractFormHelper {
 
 	public ApplicationFormHelper() {
-		super("Application", "Application");
+		super("Application", "Application", "Application");
 	}
 
 	public Form createForm() {

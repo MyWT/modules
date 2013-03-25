@@ -11,7 +11,7 @@ import rnd.mywt.client.mvc.page.form.Form;
 public class ModuleFormHelper extends AbstractFormHelper {
 
 	public ModuleFormHelper() {
-		super("Module", "Module");
+		super("Module", "Module", "Module");
 	}
 
 	public Form createForm() {
