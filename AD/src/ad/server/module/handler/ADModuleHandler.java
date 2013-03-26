@@ -14,6 +14,7 @@ import ad.server.Field;
 import ad.server.Form;
 import ad.server.Module;
 import ad.server.View;
+import ad.server.module.handler.bean.ApplicationBeanABHandler;
 
 public class ADModuleHandler extends AbstractModuleHandler {
 
@@ -25,7 +26,7 @@ public class ADModuleHandler extends AbstractModuleHandler {
 	public void initModule() {
 		registerApplicationBean("Application", Application.class);
 		registerApplicationBean("Module", Module.class);
-		registerApplicationBean("ApplicationBean", ad.server.ApplicationBean.class);
+		registerApplicationBean("ApplicationBean", ad.server.ApplicationBean.class, new ApplicationBeanABHandler());
 		registerApplicationBean("View", View.class);
 		registerApplicationBean("Form", Form.class);
 		registerApplicationBean("Field", Field.class);
