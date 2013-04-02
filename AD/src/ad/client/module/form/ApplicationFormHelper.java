@@ -1,9 +1,9 @@
 package ad.client.module.form;
 
+import rnd.bean.ApplicationBean;
+import rnd.bean.ApplicationDynaBean;
 import rnd.mywt.client.MyWTHelper;
 import rnd.mywt.client.application.AbstractFormHelper;
-import rnd.mywt.client.bean.ApplicationBean;
-import rnd.mywt.client.bean.ApplicationDynaBean;
 import rnd.mywt.client.mvc.field.data.text.TextField;
 import rnd.mywt.client.mvc.page.form.Form;
 

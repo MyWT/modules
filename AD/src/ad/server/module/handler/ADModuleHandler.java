@@ -2,8 +2,8 @@ package ad.server.module.handler;
 
 import java.util.Collection;
 
-import rnd.mywt.client.bean.ApplicationBean;
-import rnd.mywt.client.bean.ApplicationDynaBean;
+import rnd.bean.ApplicationBean;
+import rnd.bean.ApplicationDynaBean;
 import rnd.mywt.client.rpc.ApplicationRequest;
 import rnd.mywt.client.rpc.ApplicationResponse;
 import rnd.mywt.client.rpc.util.ARUtils;
