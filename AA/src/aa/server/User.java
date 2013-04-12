@@ -1,22 +1,12 @@
 package aa.server;
 
-import javax.jdo.annotations.IdGeneratorStrategy;
-import javax.jdo.annotations.IdentityType;
-import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Persistent;
-import javax.jdo.annotations.PrimaryKey;
-
-import rnd.mywt.client.utils.ObjectUtils;
 import rnd.mywt.server.bean.ApplicationJavaBean;
+import rnd.utils.ObjectUtils;
 
-@PersistenceCapable(identityType = IdentityType.APPLICATION)
 public class User extends ApplicationJavaBean {
 
-	@PrimaryKey
-	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
 	private Long userId;
 
-	@Persistent
 	private String userName;
 
 	public String getUserName() {

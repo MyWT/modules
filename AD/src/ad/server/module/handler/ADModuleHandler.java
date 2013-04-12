@@ -15,6 +15,9 @@ import ad.server.Form;
 import ad.server.Module;
 import ad.server.View;
 import ad.server.module.handler.bean.ApplicationBeanABHandler;
+import ad.server.module.handler.bean.FieldABHandler;
+import ad.server.module.handler.bean.FormABHandler;
+import ad.server.module.handler.bean.ModuleABHandler;
 
 public class ADModuleHandler extends AbstractModuleHandler {
 
@@ -25,11 +28,11 @@ public class ADModuleHandler extends AbstractModuleHandler {
 	@Override
 	public void initModule() {
 		registerApplicationBean("Application", Application.class);
-		registerApplicationBean("Module", Module.class);
+		registerApplicationBean("Module", Module.class, new ModuleABHandler());
 		registerApplicationBean("ApplicationBean", ad.server.ApplicationBean.class, new ApplicationBeanABHandler());
 		registerApplicationBean("View", View.class);
-		registerApplicationBean("Form", Form.class);
-		registerApplicationBean("Field", Field.class);
+		registerApplicationBean("Form", Form.class, new FormABHandler());
+		registerApplicationBean("Field", Field.class, new FieldABHandler());
 	}
 
 	@Override

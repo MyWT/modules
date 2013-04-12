@@ -6,6 +6,7 @@ public class ApplicationBean extends ApplicationJavaBean {
 
 	private Long applicationBeanId;
 	private String name;
+	private String className;
 	private Long applicationId;
 	private Long moduleId;
 
@@ -23,6 +24,14 @@ public class ApplicationBean extends ApplicationJavaBean {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getClassName() {
+		return className;
+	}
+
+	public void setClassName(String className) {
+		this.className = className;
 	}
 
 	public Long getApplicationId() {

@@ -2,10 +2,11 @@ package ad.client.module.form;
 
 import rnd.bean.ApplicationBean;
 import rnd.bean.ApplicationDynaBean;
-import rnd.mywt.client.MyWTHelper;
+import rnd.expression.Expression;
 import rnd.mywt.client.application.AbstractFormHelper;
+import rnd.mywt.client.data.impl.FilterInfoImpl;
 import rnd.mywt.client.mvc.field.data.ReferenceField;
-import rnd.mywt.client.mvc.field.data.text.TextField;
+import rnd.mywt.client.mvc.page.board.DataBoard;
 import rnd.mywt.client.mvc.page.form.Form;
 
 public class ModuleFormHelper extends AbstractFormHelper {
@@ -17,15 +18,27 @@ public class ModuleFormHelper extends AbstractFormHelper {
 	public Form createForm() {
 
 		Form form = super.createForm();
-
-		ReferenceField applicationId_RF = createReferenceField("Application", "applicationId", "AD", "Application", "Application", "Name");
-		form.addField(applicationId_RF);
-
-		TextField name_TF = MyWTHelper.getMVCFactory().createTextField("Module Name");
-		name_TF.setBoundTo("name");
-		form.addField(name_TF);
+		form.addField(createTextField("Module Name", "name"));
 
 		return form;
+	}
+
+	@Override
+	public DataBoard createDataBoard() {
+
+		DataBoard dataBoard = createDataBoard("AD", "Module", "Module");
+
+		ReferenceField applicationId_RF = createReferenceField("Application", "applicationId", "AD", "Application", "Application", "Name");
+		Expression applicationIdCtxExp = dataBoard.addContextField("applicationId", applicationId_RF);
+
+		FilterInfoImpl filterInfo = new FilterInfoImpl("default");
+
+		filterInfo.setFilterParamExpressionObjects(dataBoard.getModel());
+		filterInfo.setFilterParamExpressions(applicationIdCtxExp);
+
+		dataBoard.setFilter(filterInfo);
+
+		return dataBoard;
 	}
 
 	@Override

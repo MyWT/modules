@@ -5,5 +5,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/MyWT"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Persistence"/>
 	<classpathentry kind="lib" path="/Persistence/lib/jdo2-api-2.3-eb.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Beans"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Utils"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

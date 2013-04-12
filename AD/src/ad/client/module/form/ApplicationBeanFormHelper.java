@@ -20,14 +20,11 @@ public class ApplicationBeanFormHelper extends AbstractFormHelper {
 
 		Form form = super.createForm();
 
-//		ReferenceField applicationId_RF = createReferenceField("Application", "applicationId", "AD", "Application", "Application", "Name");
-//		form.addField(applicationId_RF);
-//
-//		ReferenceField moduleId_RF = createReferenceField("Module", "moduleId", "AD", "Module", "Module", "Name");
-//		form.addField(moduleId_RF);
-
 		TextField name_TF = createTextField("Name", "name");
 		form.addField(name_TF);
+
+		TextField className_TF = createTextField("Class Name", "className");
+		form.addField(className_TF);
 
 		return form;
 	}
