@@ -8,6 +8,10 @@ import rnd.mywt.client.rpc.ApplicationRequest;
 import rnd.mywt.client.rpc.ApplicationResponse;
 import rnd.mywt.client.rpc.util.ARUtils;
 import rnd.mywt.server.application.AbstractModuleHandler;
+import rnd.mywt.server.application.ApplicationHandler;
+import rnd.mywt.server.application.ApplicationHandlerPool;
+import rnd.mywt.server.application.DefaultModuleHandler;
+import rnd.mywt.server.application.ModuleHandler;
 import rnd.mywt.server.util.AppBeanUtils;
 import ad.server.Application;
 import ad.server.Field;
@@ -48,7 +52,12 @@ public class ADModuleHandler extends AbstractModuleHandler {
 			if (ARUtils.getAppBeanName(req).equals("Application")) {
 
 				// Application
-				sourceBeans = getObjectPersistor().findAllObject(new Object[] { "Name = ? " }, new Object[] { ARUtils.getName(req) }, Application.class);
+				String appName = ARUtils.getName(req);
+				sourceBeans = getObjectPersistor().findAllObject(new Object[] { " Name = ? " }, new Object[] { appName }, Application.class);
+
+				// Application Handler
+				ApplicationHandler applicationHandler = ApplicationHandlerPool.getApplicationHandler(appName);
+
 				ApplicationDynaBean application = new ApplicationDynaBean();
 				ApplicationBean srcApp = sourceBeans.iterator().next();
 				AppBeanUtils.copyBean(srcApp, application, AppBeanUtils.getServerCopyBeanCtx(), AppBeanUtils.getClientBeanCopyCtx());
@@ -56,29 +65,43 @@ public class ADModuleHandler extends AbstractModuleHandler {
 
 				// Module
 				Long appId = (Long) srcApp.getValue("applicationId");
-				sourceBeans = getObjectPersistor().findAllObject(new Object[] { "ApplicationId = ? " }, new Object[] { appId }, Module.class);
+				sourceBeans = getObjectPersistor().findAllObject(new Object[] { " ApplicationId = ? " }, new Object[] { appId }, Module.class);
 				for (ApplicationBean srcModule : sourceBeans) {
 
-					ApplicationDynaBean module = new ApplicationDynaBean();
-					AppBeanUtils.copyBean(srcModule, module, AppBeanUtils.getServerCopyBeanCtx(), AppBeanUtils.getClientBeanCopyCtx());
+					// Module Handler
+					Module module = (Module) srcModule;
+					ModuleHandler moduleHandler = DefaultModuleHandler.getInstance(module.getName());
+					applicationHandler.registerModule(module.getName(), moduleHandler);
+
+					ApplicationDynaBean trgtModule = new ApplicationDynaBean();
+					AppBeanUtils.copyBean(srcModule, trgtModule, AppBeanUtils.getServerCopyBeanCtx(), AppBeanUtils.getClientBeanCopyCtx());
 
 					// ApplicationBean
 					Long moduleId = (Long) srcModule.getValue("moduleId");
-					sourceBeans = getObjectPersistor().findAllObject(new Object[] { "ModuleId = ? " }, new Object[] { moduleId }, ad.server.ApplicationBean.class);
+					sourceBeans = getObjectPersistor().findAllObject(new Object[] { " ModuleId = ? " }, new Object[] { moduleId }, ad.server.ApplicationBean.class);
 					for (ApplicationBean srcAppBean : sourceBeans) {
 
-						ApplicationDynaBean appBean = new ApplicationDynaBean();
-						AppBeanUtils.copyBean(srcAppBean, appBean, AppBeanUtils.getServerCopyBeanCtx(), AppBeanUtils.getClientBeanCopyCtx());
+						// ApplicationBean Handler
+						ad.server.ApplicationBean appBean = (ad.server.ApplicationBean) srcAppBean;
+
+						try {
+							moduleHandler.registerApplicationBean(appBean.getName(), (Class<? extends ApplicationBean>) Class.forName(appBean.getClassName()));
+						} catch (ClassNotFoundException e) {
+							e.printStackTrace();
+						}
+
+						ApplicationDynaBean trgtAppBean = new ApplicationDynaBean();
+						AppBeanUtils.copyBean(srcAppBean, trgtAppBean, AppBeanUtils.getServerCopyBeanCtx(), AppBeanUtils.getClientBeanCopyCtx());
 
 						Long appBeanId = (Long) srcAppBean.getValue("applicationBeanId");
 						// Form
-						sourceBeans = getObjectPersistor().findAllObject(new Object[] { "ApplicationBeanId = ? " }, new Object[] { appBeanId }, Form.class);
+						sourceBeans = getObjectPersistor().findAllObject(new Object[] { " ApplicationBeanId = ? " }, new Object[] { appBeanId }, Form.class);
 						for (ApplicationBean srcForm : sourceBeans) {
 
-							ApplicationDynaBean form = new ApplicationDynaBean();
-							AppBeanUtils.copyBean(srcForm, form, AppBeanUtils.getServerCopyBeanCtx(), AppBeanUtils.getClientBeanCopyCtx());
+							ApplicationDynaBean trgtForm = new ApplicationDynaBean();
+							AppBeanUtils.copyBean(srcForm, trgtForm, AppBeanUtils.getServerCopyBeanCtx(), AppBeanUtils.getClientBeanCopyCtx());
 
-							appBean.addElement("form", form);
+							trgtAppBean.addElement("form", trgtForm);
 						} // End Form
 
 						// // View
@@ -95,10 +118,10 @@ public class ADModuleHandler extends AbstractModuleHandler {
 						// appBean.addElement("view", view);
 						// }
 
-						module.addElement("applicationBean", appBean);
-					}// End AppBean
+						trgtModule.addElement("applicationBean", trgtAppBean);
+					}// End ApplicationBean
 
-					application.addElement("module", module);
+					application.addElement("module", trgtModule);
 				}// End Module
 
 			} // End App
@@ -106,7 +129,7 @@ public class ADModuleHandler extends AbstractModuleHandler {
 			else if (ARUtils.getAppBeanName(req).equals("Form")) {
 
 				// Form
-				sourceBeans = getObjectPersistor().findAllObject(new Object[] { "Name = ? " }, new Object[] { ARUtils.getName(req) }, Form.class);
+				sourceBeans = getObjectPersistor().findAllObject(new Object[] { " Name = ? " }, new Object[] { ARUtils.getName(req) }, Form.class);
 				ApplicationDynaBean form = new ApplicationDynaBean();
 				ApplicationBean srcForm = sourceBeans.iterator().next();
 				AppBeanUtils.copyBean(srcForm, form, AppBeanUtils.getServerCopyBeanCtx(), AppBeanUtils.getClientBeanCopyCtx());
@@ -114,7 +137,7 @@ public class ADModuleHandler extends AbstractModuleHandler {
 
 				// Field
 				Long formId = (Long) srcForm.getValue("formId");
-				sourceBeans = getObjectPersistor().findAllObject(new Object[] { "FormId = ? " }, new Object[] { formId }, Field.class);
+				sourceBeans = getObjectPersistor().findAllObject(new Object[] { " FormId = ? " }, new Object[] { formId }, Field.class);
 				for (ApplicationBean srcField : sourceBeans) {
 
 					ApplicationDynaBean field = new ApplicationDynaBean();
