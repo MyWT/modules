@@ -9,14 +9,51 @@ public class Field extends ApplicationJavaBean {
 	public final static int TYPE_REFERENCE = 3;
 
 	private Long fieldId;
+	private int fieldType;
 	private String label;
-	private int type;
 	private String boundTo;
 
 	private Long applicationId;
 	private Long moduleId;
 	private Long applicationBeanId;
 	private Long formId;
+
+	private Long refModuleId;
+	private Long refAppBeanId;
+	private Long refViewId;
+	private String refColumnName;
+
+	public Long getRefModuleId() {
+		return refModuleId;
+	}
+
+	public void setRefModuleId(Long refModuleId) {
+		this.refModuleId = refModuleId;
+	}
+
+	public Long getRefAppBeanId() {
+		return refAppBeanId;
+	}
+
+	public void setRefAppBeanId(Long refAppBeanId) {
+		this.refAppBeanId = refAppBeanId;
+	}
+
+	public Long getRefViewId() {
+		return refViewId;
+	}
+
+	public void setRefViewId(Long refViewId) {
+		this.refViewId = refViewId;
+	}
+
+	public String getRefColumnName() {
+		return refColumnName;
+	}
+
+	public void setRefColumnName(String refColumnName) {
+		this.refColumnName = refColumnName;
+	}
 
 	public Long getFieldId() {
 		return fieldId;
@@ -34,12 +71,12 @@ public class Field extends ApplicationJavaBean {
 		this.label = label;
 	}
 
-	public int getType() {
-		return type;
+	public int getFieldType() {
+		return fieldType;
 	}
 
-	public void setType(int type) {
-		this.type = type;
+	public void setFieldType(int fieldType) {
+		this.fieldType = fieldType;
 	}
 
 	public Long getApplicationId() {

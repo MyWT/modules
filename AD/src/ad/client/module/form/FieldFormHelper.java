@@ -20,28 +20,23 @@ public class FieldFormHelper extends AbstractFormHelper {
 
 		Form form = super.createForm();
 
-		// ReferenceField applicationId_RF = createReferenceField("Application",
-		// "applicationId", "AD", "Application", "Application", "Name");
-		// form.addField(applicationId_RF);
-		//
-		// ReferenceField moduleId_RF = createReferenceField("Module",
-		// "moduleId", "AD", "Module", "Module", "Name");
-		// form.addField(moduleId_RF);
-		//
-		// ReferenceField appBeanId_RF = createReferenceField("ApplicationBean",
-		// "ApplicationBeanId", "AD", "ApplicationBean", "ApplicationBean",
-		// "Name");
-		// form.addField(appBeanId_RF);
-		//
-		// ReferenceField formId_RF = createReferenceField("Form", "FormId",
-		// "AD", "Form", "Form", "Name");
-		// form.addField(formId_RF);
-
 		TextField name_TF = createTextField("Field Name", "label");
 		form.addField(name_TF);
 
 		TextField boundTo_TF = createTextField("Bound To", "boundTo");
 		form.addField(boundTo_TF);
+		
+		ReferenceField refModuleId_RF = createReferenceField("Module", "refModuleId", "AD", "Module", "Module", "Name");
+		form.addField(refModuleId_RF);
+
+		ReferenceField refAppBeanId_RF = createReferenceField("ApplicationBean", "refAppBeanId", "AD", "ApplicationBean", "ApplicationBean", "Name");
+		form.addField(refAppBeanId_RF);
+		
+		ReferenceField refViewId_RF = createReferenceField("View", "refViewId", "AD", "View", "View", "Name");
+		form.addField(refViewId_RF);
+		
+		TextField refColumnName_TF = createTextField("Column Name", "refColumnName");
+		form.addField(refColumnName_TF);
 
 		return form;
 	}
