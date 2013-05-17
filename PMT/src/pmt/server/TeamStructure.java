@@ -1,7 +1,7 @@
 package pmt.server;
 
-import rnd.mywt.client.utils.ObjectUtils;
 import rnd.mywt.server.bean.ApplicationJavaBean;
+import rnd.utils.ObjectUtils;
 
 public class TeamStructure extends ApplicationJavaBean {
 

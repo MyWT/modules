@@ -1,6 +1,6 @@
 package pmt.client;
 
-import rnd.mywt.client.bean.ApplicationDynaBean;
+import rnd.bean.ApplicationDynaBean;
 
 public class TaskType extends ApplicationDynaBean {
 

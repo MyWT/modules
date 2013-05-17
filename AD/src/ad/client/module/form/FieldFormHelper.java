@@ -13,7 +13,7 @@ import rnd.mywt.client.mvc.page.form.Form;
 public class FieldFormHelper extends AbstractFormHelper {
 
 	public FieldFormHelper() {
-		super("Field", "Field", "Field");
+		super("AD", "Field", "Field", "Field");
 	}
 
 	public Form createForm() {

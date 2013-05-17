@@ -13,7 +13,7 @@ import rnd.mywt.client.mvc.page.form.Form;
 public class ApplicationBeanFormHelper extends AbstractFormHelper {
 
 	public ApplicationBeanFormHelper() {
-		super("ApplicationBean", "ApplicationBean", "ApplicationBean");
+		super("AD", "ApplicationBean", "ApplicationBean", "ApplicationBean");
 	}
 
 	public Form createForm() {

@@ -7,5 +7,17 @@
 	<classpathentry kind="lib" path="/Persistence/lib/jdo2-api-2.3-eb.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Beans"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Utils"/>
+	<classpathentry kind="lib" path="D:/Vinod/Programs/eclipse-helios/plugins/com.google.gwt.eclipse.sdkbundle_2.4.0.v201203300216-rel-r36/gwt-2.4.0/gwt-user.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/D:/Vinod/Programs/eclipse-helios/plugins/com.google.gwt.eclipse.sdkbundle_2.4.0.v201203300216-rel-r36/gwt-2.4.0/doc/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/Vinod/Programs/eclipse-helios/plugins/com.google.gwt.eclipse.sdkbundle_2.4.0.v201203300216-rel-r36/gwt-2.4.0/gwt-dev.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/D:/Vinod/Programs/eclipse-helios/plugins/com.google.gwt.eclipse.sdkbundle_2.4.0.v201203300216-rel-r36/gwt-2.4.0/doc/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/Vinod/Programs/eclipse-helios/plugins/com.google.gwt.eclipse.sdkbundle_2.4.0.v201203300216-rel-r36/gwt-2.4.0/validation-api-1.0.0.GA-sources.jar"/>
+	<classpathentry kind="lib" path="D:/Vinod/Programs/eclipse-helios/plugins/com.google.gwt.eclipse.sdkbundle_2.4.0.v201203300216-rel-r36/gwt-2.4.0/validation-api-1.0.0.GA.jar" sourcepath="D:/Vinod/Programs/eclipse-helios/plugins/com.google.gwt.eclipse.sdkbundle_2.4.0.v201203300216-rel-r36/gwt-2.4.0/validation-api-1.0.0.GA-sources.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
