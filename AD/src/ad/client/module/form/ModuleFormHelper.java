@@ -28,7 +28,7 @@ public class ModuleFormHelper extends AbstractFormHelper {
 
 		DataBoard dataBoard = createDataBoard("AD", "Module", "Module");
 
-		ReferenceField applicationId_RF = createReferenceField("Application", "applicationId", "AD", "Application", "Application", "Name");
+		ReferenceField applicationId_RF = createReferenceField("Application", "AD", "Application", "Application", "Name", "applicationId");
 		Expression applicationIdCtxExp = dataBoard.addContextField("applicationId", applicationId_RF);
 
 		FilterInfoImpl filterInfo = new FilterInfoImpl("default");

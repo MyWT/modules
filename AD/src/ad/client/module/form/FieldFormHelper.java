@@ -25,16 +25,28 @@ public class FieldFormHelper extends AbstractFormHelper {
 
 		TextField boundTo_TF = createTextField("Bound To", "boundTo");
 		form.addField(boundTo_TF);
-		
-		ReferenceField refModuleId_RF = createReferenceField("Module", "refModuleId", "AD", "Module", "Module", "Name");
-		form.addField(refModuleId_RF);
 
-		ReferenceField refAppBeanId_RF = createReferenceField("ApplicationBean", "refAppBeanId", "AD", "ApplicationBean", "ApplicationBean", "Name");
-		form.addField(refAppBeanId_RF);
-		
-		ReferenceField refViewId_RF = createReferenceField("View", "refViewId", "AD", "View", "View", "Name");
-		form.addField(refViewId_RF);
-		
+		TextField type_TF = createTextField("Field Type", "fieldType");
+		form.addField(type_TF);
+
+		//	ReferenceField refModuleId_RF = createReferenceField("Module", "AD", "Module", "Module", "Name", "refModuleId");
+		//	form.addField(refModuleId_RF);
+		//
+		//	ReferenceField refAppBeanId_RF = createReferenceField("ApplicationBean", "AD", "ApplicationBean", "ApplicationBean", "Name", "refAppBeanId");
+		//	form.addField(refAppBeanId_RF);
+		//		
+		//	ReferenceField refViewId_RF = createReferenceField("View", "AD", "View", "View", "Name", "refViewId");
+		//	form.addField(refViewId_RF);
+
+		TextField refModule_TF = createTextField("Module", "refModuleName");
+		form.addField(refModule_TF);
+
+		TextField refAppBean_TF = createTextField("Application Bean", "refAppBeanName");
+		form.addField(refAppBean_TF);
+
+		TextField refView_TF = createTextField("View", "refViewName");
+		form.addField(refView_TF);
+
 		TextField refColumnName_TF = createTextField("Column Name", "refColumnName");
 		form.addField(refColumnName_TF);
 
@@ -46,16 +58,16 @@ public class FieldFormHelper extends AbstractFormHelper {
 
 		DataBoard dataBoard = createDataBoard("AD", "Field", "Field");
 
-		ReferenceField applicationId_RF = createReferenceField("Application", "applicationId", "AD", "Application", "Application", "Name");
+		ReferenceField applicationId_RF = createReferenceField("Application", "AD", "Application", "Application", "Name", "applicationId");
 		Expression applicationIdCtxExp = dataBoard.addContextField("applicationId", applicationId_RF);
 
-		ReferenceField moduleId_RF = createReferenceField("Module", "moduleId", "AD", "Module", "Module", "Name");
+		ReferenceField moduleId_RF = createReferenceField("Module", "AD", "Module", "Module", "Name", "moduleId");
 		Expression moduleIdCtxExp = dataBoard.addContextField("moduleId", moduleId_RF);
 
-		ReferenceField appBeanId_RF = createReferenceField("ApplicationBean", "applicationBeanId", "AD", "ApplicationBean", "ApplicationBean", "Name");
+		ReferenceField appBeanId_RF = createReferenceField("ApplicationBean", "AD", "ApplicationBean", "ApplicationBean", "Name", "applicationBeanId");
 		Expression applicationBeanIdCtxExp = dataBoard.addContextField("applicationBeanId", appBeanId_RF);
 
-		ReferenceField formId_RF = createReferenceField("Form", "formId", "AD", "Form", "Form", "Name");
+		ReferenceField formId_RF = createReferenceField("Form", "AD", "Form", "Form", "Name", "formId");
 		Expression formIdCtxExp = dataBoard.addContextField("formId", formId_RF);
 
 		FilterInfoImpl filterInfo = new FilterInfoImpl("default");

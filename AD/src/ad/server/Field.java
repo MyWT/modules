@@ -18,34 +18,75 @@ public class Field extends ApplicationJavaBean {
 	private Long applicationBeanId;
 	private Long formId;
 
-	private Long refModuleId;
-	private Long refAppBeanId;
-	private Long refViewId;
+	boolean reference;
+
+	//	private Long refModuleId;
+	//	private Long refAppBeanId;
+	//	private Long refViewId;
+
+	private String refModuleName;
+	private String refAppBeanName;
+	private String refViewName;
+
 	private String refColumnName;
 
-	public Long getRefModuleId() {
-		return refModuleId;
+	boolean context;
+
+	public boolean isReference() {
+		return reference;
 	}
 
-	public void setRefModuleId(Long refModuleId) {
-		this.refModuleId = refModuleId;
+	public void setReference(boolean reference) {
+		this.reference = reference;
 	}
 
-	public Long getRefAppBeanId() {
-		return refAppBeanId;
+	public String getRefModuleName() {
+		return refModuleName;
 	}
 
-	public void setRefAppBeanId(Long refAppBeanId) {
-		this.refAppBeanId = refAppBeanId;
+	public void setRefModuleName(String refModuleName) {
+		this.refModuleName = refModuleName;
 	}
 
-	public Long getRefViewId() {
-		return refViewId;
+	public String getRefAppBeanName() {
+		return refAppBeanName;
 	}
 
-	public void setRefViewId(Long refViewId) {
-		this.refViewId = refViewId;
+	public void setRefAppBeanName(String refAppBeanName) {
+		this.refAppBeanName = refAppBeanName;
 	}
+
+	public String getRefViewName() {
+		return refViewName;
+	}
+
+	public void setRefViewName(String refViewName) {
+		this.refViewName = refViewName;
+	}
+
+	//	public Long getRefModuleId() {
+	//		return refModuleId;
+	//	}
+	//
+	//	public void setRefModuleId(Long refModuleId) {
+	//		this.refModuleId = refModuleId;
+	//	}
+	//
+	//	public Long getRefAppBeanId() {
+	//		return refAppBeanId;
+	//	}
+	//
+	//	public void setRefAppBeanId(Long refAppBeanId) {
+	//		this.refAppBeanId = refAppBeanId;
+	//	}
+	//
+	//	public Long getRefViewId() {
+	//		return refViewId;
+	//	}
+	//
+	//	public void setRefViewId(Long refViewId) {
+	//		this.refViewId = refViewId;
+	//	}
 
 	public String getRefColumnName() {
 		return refColumnName;
@@ -117,6 +158,14 @@ public class Field extends ApplicationJavaBean {
 
 	public void setFormId(Long formId) {
 		this.formId = formId;
+	}
+
+	public boolean isContext() {
+		return context;
+	}
+
+	public void setContext(boolean context) {
+		this.context = context;
 	}
 
 }

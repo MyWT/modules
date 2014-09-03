@@ -1,18 +1,18 @@
-package ad.server.module.handler.bean;
+package ad.server.module.bean;
 
 import rnd.mywt.server.application.AbstractABHandler;
 import rnd.mywt.server.data.ViewMetaData;
 import rnd.mywt.server.data.impl.SQLViewMetaDataImpl;
 
-public class FieldABHandler extends AbstractABHandler {
+public class ModuleABHandler extends AbstractABHandler {
 
 	@Override
 	public ViewMetaData getViewMetaData(String viewName) {
 
 		SQLViewMetaDataImpl vmd = new SQLViewMetaDataImpl();
-		vmd.setViewQuery("Select * From [Field]");
+		vmd.setViewQuery("Select * From [Module]");
 		vmd.setViewName(viewName);
-		vmd.addFilter("default", "applicationId = ? and moduleid = ? and applicationBeanId = ? and formId = ?");
+		vmd.addFilter("default", "applicationId = ?");
 
 		return vmd;
 	}
